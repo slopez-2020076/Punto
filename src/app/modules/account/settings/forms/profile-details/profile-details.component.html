@@ -1,0 +1,133 @@
+<div class="card mb-5 mb-xl-10">
+  <div
+    class="card-header border-0 cursor-pointer"
+    role="button"
+    data-bs-toggle="collapse"
+    data-bs-target="#kt_account_profile_details"
+    aria-expanded="true"
+    aria-controls="kt_account_profile_details"
+  >
+    <div class="card-title m-0">
+      <h3 class="fw-bolder m-0">Detalles De La Cuenta</h3>
+    </div>
+  </div>
+  <div id="kt_account_profile_details" class="collapse show">
+    <form [formGroup]="form" novalidate="" class="form">
+      <div class="card-body border-top p-9">
+        <div class="row mb-6">
+          <label class="col-lg-4 col-form-label fw-bold fs-6">Imagen</label>
+          <div class="col-lg-8">
+            <div
+              class="image-input image-input-outline"
+              data-kt-image-input="true"
+              [style.background-image]="'url(./assets/media/avatars/blank.png'"
+            >
+              <div
+                class="image-input-wrapper w-125px h-125px"
+                [style.background-image]="
+                  'url(./assets/media/avatars/300-1.jpg'
+                "
+              ></div>
+            </div>
+          </div>
+        </div>
+        <div class="row mb-6">
+          <label class="col-lg-4 col-form-label required fw-bold fs-6"
+            >Nombre</label
+          >
+          <div class="col-lg-8">
+            <div class="row">
+              <div class="col-lg-12 fv-row">
+                <input
+                  type="text"
+                  formControlName="nombre"
+                  class="
+                    form-control form-control-lg form-control-solid
+                    mb-3 mb-lg-0
+                  "
+                  placeholder="Nombre Completo"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row mb-6">
+          <label class="col-lg-4 col-form-label required fw-bold fs-6"
+            >Nombre de Usuario</label
+          >
+          <div class="col-lg-8 fv-row">
+            <input
+              type="text"
+              formControlName="username"
+              class="form-control form-control-lg form-control-solid"
+              placeholder="Usuario"
+            />
+          </div>
+        </div>
+        <div class="row mb-6">
+          <label class="col-lg-4 col-form-label fw-bold fs-6"
+            ><span class="required">Número Teléfonico</span></label
+          >
+          <div class="col-lg-8 fv-row">
+            <input
+              type="tel"
+              formControlName="phone"
+              class="form-control form-control-lg form-control-solid"
+              placeholder="Número Telefonico"
+            />
+          </div>
+        </div>
+        <div class="row mb-6">
+          <label class="col-lg-4 col-form-label fw-bold fs-6"
+            ><span class="required">Correo Electrónico</span></label
+          >
+          <div class="col-lg-8 fv-row">
+            <input
+              type="text"
+              formControlName="email"
+              class="form-control form-control-lg form-control-solid"
+              placeholder="Correo Electrónico"
+            />
+          </div>
+        </div>
+        <div class="row mb-6">
+          <label class="col-lg-4 col-form-label fw-bold fs-6"
+            ><span class="required">Rol</span></label
+          >
+          <div class="col-lg-8 fv-row">
+            <input
+              [readonly]="true"
+              type="text"
+              formControlName="role"
+              class="form-control form-control-lg form-control-solid"
+              placeholder="Rol"
+            />
+            <!-- <div class="fv-plugins-message-container">
+              <div class="fv-help-block">Country is required</div>
+            </div> -->
+          </div>
+        </div>
+        
+        
+     
+        <button
+          type="button"
+          
+          class="btn btn-primary float-end mb-4"
+          [disabled]="isLoading"
+          (click)="saveSettings()"
+        >
+          <ng-container *ngIf="!isLoading">Save Changes</ng-container>
+          <ng-container *ngIf="isLoading">
+            <span clas="indicator-progress" [style.display]="'block'">
+              Please wait...{{ " " }}
+              <span
+                class="spinner-border spinner-border-sm align-middle ms-2"
+              ></span>
+            </span>
+          </ng-container>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
